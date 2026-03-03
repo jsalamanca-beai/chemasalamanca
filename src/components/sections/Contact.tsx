@@ -3,8 +3,14 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import AnimateOnScroll from '@/components/ui/AnimateOnScroll';
+import { useDictionary } from '@/i18n/context';
 
 export default function Contact() {
+  const dict = useDictionary();
+  const contact = dict.contact;
+  const form = contact.form;
+  const info = contact.info;
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -41,7 +47,7 @@ export default function Contact() {
       const data = await response.json();
 
       if (!response.ok) {
-        throw new Error(data.error || 'Error al enviar el mensaje.');
+        throw new Error(data.error || form.errorDefault);
       }
 
       setIsSubmitted(true);
@@ -51,9 +57,7 @@ export default function Contact() {
       if (error instanceof Error) {
         setErrorMessage(error.message);
       } else {
-        setErrorMessage(
-          'No se pudo conectar con el servidor. Por favor, intenta de nuevo más tarde.'
-        );
+        setErrorMessage(form.errorDefault);
       }
     } finally {
       setIsSubmitting(false);
@@ -65,13 +69,12 @@ export default function Contact() {
       <div className="max-w-7xl mx-auto px-6">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <p className="text-[var(--teal)] font-semibold mb-2">CONTACTO</p>
+          <p className="text-[var(--teal)] font-semibold mb-2">{contact.sectionLabel}</p>
           <h2 className="text-3xl md:text-4xl font-bold text-[var(--gray-dark)] mb-4">
-            Hablemos
+            {contact.title}
           </h2>
           <p className="text-lg text-[var(--gray-medium)] max-w-2xl mx-auto">
-            Si buscas transformar tu organización con IA de forma ética y efectiva,
-            o explorar oportunidades de colaboración, estaré encantado de conversar.
+            {contact.description}
           </p>
         </div>
 
@@ -82,7 +85,7 @@ export default function Contact() {
               <div className="relative rounded-2xl overflow-hidden mb-8">
                 <Image
                   src="/images/chema-contact.jpg"
-                  alt="Chema Salamanca"
+                  alt={contact.photoAlt}
                   width={500}
                   height={400}
                   className="object-cover w-full"
@@ -98,12 +101,12 @@ export default function Contact() {
                     </svg>
                   </div>
                   <div>
-                    <p className="font-semibold text-[var(--gray-dark)]">Email</p>
+                    <p className="font-semibold text-[var(--gray-dark)]">{info.emailLabel}</p>
                     <a
-                      href="mailto:jose.salamanca@nichotecnologico.com"
+                      href={`mailto:${info.email}`}
                       className="text-[var(--teal)] hover:text-[var(--teal-dark)] transition-colors"
                     >
-                      jose.salamanca@nichotecnologico.com
+                      {info.email}
                     </a>
                   </div>
                 </div>
@@ -116,12 +119,12 @@ export default function Contact() {
                     </svg>
                   </div>
                   <div>
-                    <p className="font-semibold text-[var(--gray-dark)]">Teléfono</p>
+                    <p className="font-semibold text-[var(--gray-dark)]">{info.phoneLabel}</p>
                     <a
-                      href="tel:+34629275376"
+                      href={`tel:${info.phone}`}
                       className="text-[var(--teal)] hover:text-[var(--teal-dark)] transition-colors"
                     >
-                      +34 629 275 376
+                      {info.phone}
                     </a>
                   </div>
                 </div>
@@ -134,14 +137,14 @@ export default function Contact() {
                     </svg>
                   </div>
                   <div>
-                    <p className="font-semibold text-[var(--gray-dark)]">LinkedIn</p>
+                    <p className="font-semibold text-[var(--gray-dark)]">{info.linkedinLabel}</p>
                     <a
                       href="https://www.linkedin.com/in/chema-salamanca-a869402/"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-[var(--teal)] hover:text-[var(--teal-dark)] transition-colors"
                     >
-                      /in/chema-salamanca
+                      {info.linkedin}
                     </a>
                   </div>
                 </div>
@@ -155,8 +158,8 @@ export default function Contact() {
                     </svg>
                   </div>
                   <div>
-                    <p className="font-semibold text-[var(--gray-dark)]">Ubicación</p>
-                    <p className="text-[var(--gray-medium)]">Madrid, España</p>
+                    <p className="font-semibold text-[var(--gray-dark)]">{info.locationLabel}</p>
+                    <p className="text-[var(--gray-medium)]">{info.location}</p>
                   </div>
                 </div>
               </div>
@@ -174,10 +177,10 @@ export default function Contact() {
                     </svg>
                   </div>
                   <h3 className="text-2xl font-bold text-[var(--gray-dark)] mb-2">
-                    Mensaje enviado
+                    {form.successTitle}
                   </h3>
                   <p className="text-[var(--gray-medium)]">
-                    Gracias por contactar. Te responderé lo antes posible.
+                    {form.successMessage}
                   </p>
                   <button
                     onClick={() => {
@@ -187,7 +190,7 @@ export default function Contact() {
                     }}
                     className="mt-6 text-[var(--teal)] font-medium hover:text-[var(--teal-dark)] transition-colors"
                   >
-                    Enviar otro mensaje
+                    {form.sendAnother}
                   </button>
                 </div>
               ) : (
@@ -210,7 +213,7 @@ export default function Contact() {
                           />
                         </svg>
                         <div>
-                          <p className="font-medium text-sm">Error al enviar el mensaje</p>
+                          <p className="font-medium text-sm">{form.errorTitle}</p>
                           <p className="text-sm mt-1">{errorMessage}</p>
                         </div>
                       </div>
@@ -222,7 +225,7 @@ export default function Contact() {
                       htmlFor="name"
                       className="block text-sm font-medium text-[var(--gray-dark)] mb-2"
                     >
-                      Nombre completo *
+                      {form.nameLabel}
                     </label>
                     <input
                       type="text"
@@ -234,7 +237,7 @@ export default function Contact() {
                       className={`w-full px-4 py-3 rounded-lg border ${
                         isError ? 'border-red-300' : 'border-gray-200'
                       } focus:border-[var(--teal)] focus:ring-2 focus:ring-[var(--teal)]/20 outline-none transition-all`}
-                      placeholder="Tu nombre"
+                      placeholder={form.namePlaceholder}
                     />
                   </div>
 
@@ -243,7 +246,7 @@ export default function Contact() {
                       htmlFor="email"
                       className="block text-sm font-medium text-[var(--gray-dark)] mb-2"
                     >
-                      Email *
+                      {form.emailLabel}
                     </label>
                     <input
                       type="email"
@@ -255,7 +258,7 @@ export default function Contact() {
                       className={`w-full px-4 py-3 rounded-lg border ${
                         isError ? 'border-red-300' : 'border-gray-200'
                       } focus:border-[var(--teal)] focus:ring-2 focus:ring-[var(--teal)]/20 outline-none transition-all`}
-                      placeholder="tu@email.com"
+                      placeholder={form.emailPlaceholder}
                     />
                   </div>
 
@@ -264,7 +267,7 @@ export default function Contact() {
                       htmlFor="subject"
                       className="block text-sm font-medium text-[var(--gray-dark)] mb-2"
                     >
-                      Asunto *
+                      {form.subjectLabel}
                     </label>
                     <select
                       id="subject"
@@ -276,12 +279,14 @@ export default function Contact() {
                         isError ? 'border-red-300' : 'border-gray-200'
                       } focus:border-[var(--teal)] focus:ring-2 focus:ring-[var(--teal)]/20 outline-none transition-all bg-white`}
                     >
-                      <option value="">Selecciona una opción</option>
-                      <option value="asesoria">Asesoría Estratégica en IA</option>
-                      <option value="consejo">Consejos de Administración</option>
-                      <option value="conferencia">Conferencia o Ponencia</option>
-                      <option value="colaboracion">Colaboración / Emprendimiento</option>
-                      <option value="otro">Otro</option>
+                      <option value="">{form.subjectPlaceholder}</option>
+                      {(form.subjectOptions as Array<{ value: string; label: string }>).map(
+                        (opt) => (
+                          <option key={opt.value} value={opt.value}>
+                            {opt.label}
+                          </option>
+                        )
+                      )}
                     </select>
                   </div>
 
@@ -290,7 +295,7 @@ export default function Contact() {
                       htmlFor="message"
                       className="block text-sm font-medium text-[var(--gray-dark)] mb-2"
                     >
-                      Mensaje *
+                      {form.messageLabel}
                     </label>
                     <textarea
                       id="message"
@@ -302,7 +307,7 @@ export default function Contact() {
                       className={`w-full px-4 py-3 rounded-lg border ${
                         isError ? 'border-red-300' : 'border-gray-200'
                       } focus:border-[var(--teal)] focus:ring-2 focus:ring-[var(--teal)]/20 outline-none transition-all resize-none`}
-                      placeholder="Cuéntame sobre tu proyecto o consulta..."
+                      placeholder={form.messagePlaceholder}
                     />
                   </div>
 
@@ -332,10 +337,10 @@ export default function Contact() {
                             d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
                           />
                         </svg>
-                        Enviando...
+                        {form.submitting}
                       </>
                     ) : (
-                      'Enviar mensaje'
+                      form.submit
                     )}
                   </button>
                 </form>

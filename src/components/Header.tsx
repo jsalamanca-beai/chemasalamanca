@@ -2,22 +2,32 @@
 
 import { useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
-
-const navItems = [
-  { name: 'Inicio', href: '#hero' },
-  { name: 'Sobre mí', href: '#about' },
-  { name: 'Expertise', href: '#expertise' },
-  { name: 'Logros', href: '#achievements' },
-  { name: 'Trayectoria', href: '#brands' },
-  { name: 'Servicios', href: '#services' },
-  { name: 'Contacto', href: '#contact' },
-];
+import { useDictionary } from '@/i18n/context';
 
 export default function Header() {
+  const dict = useDictionary();
+  const pathname = usePathname();
+
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState<string>('#hero');
+
+  // Determine current locale and the alternate locale href
+  const isSpanish = pathname.startsWith('/es');
+  const alternateLang = isSpanish ? 'EN' : 'ES';
+  const alternateHref = isSpanish ? '/en' : '/es';
+
+  const navItems = [
+    { name: dict.nav.home, href: '#hero' },
+    { name: dict.nav.about, href: '#about' },
+    { name: dict.nav.expertise, href: '#expertise' },
+    { name: dict.nav.achievements, href: '#achievements' },
+    { name: dict.nav.brands, href: '#brands' },
+    { name: dict.nav.services, href: '#services' },
+    { name: dict.nav.contact, href: '#contact' },
+  ];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -57,6 +67,7 @@ export default function Header() {
     return () => {
       observers.forEach((observer) => observer.disconnect());
     };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleNavClick = useCallback(() => {
@@ -86,7 +97,7 @@ export default function Header() {
         {/* Desktop Navigation */}
         <ul className="hidden md:flex items-center gap-8">
           {navItems.map((item) => (
-            <li key={item.name} className="relative">
+            <li key={item.href} className="relative">
               <Link
                 href={item.href}
                 className={`text-sm font-medium transition-colors hover:text-[var(--teal)] ${
@@ -104,12 +115,28 @@ export default function Header() {
               )}
             </li>
           ))}
+
+          {/* Language Switcher */}
+          <li>
+            <Link
+              href={alternateHref}
+              className={`text-sm font-medium transition-colors underline-offset-2 hover:underline ${
+                isScrolled
+                  ? 'text-[var(--gray-dark)] hover:text-[var(--teal)]'
+                  : 'text-white/80 hover:text-white'
+              }`}
+              aria-label={dict.common?.switchLanguage ?? 'Switch language'}
+            >
+              {alternateLang}
+            </Link>
+          </li>
+
           <li>
             <Link
               href="#contact"
               className="bg-[var(--teal)] text-white px-5 py-2 rounded-full text-sm font-medium hover:bg-[var(--teal-dark)] transition-colors"
             >
-              Hablemos
+              {dict.nav.cta}
             </Link>
           </li>
         </ul>
@@ -159,7 +186,7 @@ export default function Header() {
           >
             <ul className="py-4 px-6 space-y-4">
               {navItems.map((item) => (
-                <li key={item.name}>
+                <li key={item.href}>
                   <Link
                     href={item.href}
                     className={`block font-medium transition-colors ${
@@ -176,13 +203,26 @@ export default function Header() {
                   </Link>
                 </li>
               ))}
+
+              {/* Mobile Language Switcher */}
+              <li>
+                <Link
+                  href={alternateHref}
+                  className="block font-medium text-[var(--gray-dark)] hover:text-[var(--teal)] transition-colors"
+                  onClick={handleNavClick}
+                  aria-label={dict.common?.switchLanguage ?? 'Switch language'}
+                >
+                  {alternateLang}
+                </Link>
+              </li>
+
               <li>
                 <Link
                   href="#contact"
                   className="block bg-[var(--teal)] text-white px-5 py-2 rounded-full text-center font-medium hover:bg-[var(--teal-dark)] transition-colors"
                   onClick={handleNavClick}
                 >
-                  Hablemos
+                  {dict.nav.cta}
                 </Link>
               </li>
             </ul>

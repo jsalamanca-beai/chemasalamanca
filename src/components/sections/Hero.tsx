@@ -4,13 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
-
-const stats = [
-  { value: '+25', label: 'Países' },
-  { value: '$200M', label: 'P&L Anual' },
-  { value: '+2.000', label: 'Personas lideradas' },
-  { value: '+20pp', label: 'EBITDA en 3 años' },
-];
+import { useDictionary } from '@/i18n/context';
 
 const containerVariants = {
   hidden: {},
@@ -42,6 +36,9 @@ const photoVariants = {
 };
 
 export default function Hero() {
+  const dict = useDictionary();
+  const hero = dict.hero;
+
   const sectionRef = useRef<HTMLElement>(null);
 
   const { scrollYProgress } = useScroll({
@@ -93,7 +90,7 @@ export default function Hero() {
             <motion.div variants={itemVariants}>
               <span className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 text-[var(--gold-light)] text-sm font-semibold px-4 py-2 rounded-full mb-6">
                 <span className="w-2 h-2 rounded-full bg-[var(--gold-light)] animate-pulse" />
-                CEO & Fundador de BEAI Energy
+                {hero.badge}
               </span>
             </motion.div>
 
@@ -102,8 +99,8 @@ export default function Hero() {
               variants={itemVariants}
               className="text-4xl md:text-5xl xl:text-6xl font-bold mb-5 leading-tight"
             >
-              Transformación Empresarial y Humana{' '}
-              <span className="text-[var(--gold-light)]">Aumentada</span>
+              {hero.headline}{' '}
+              <span className="text-[var(--gold-light)]">{hero.headlineHighlight}</span>
             </motion.h1>
 
             {/* Sub-headline */}
@@ -111,8 +108,8 @@ export default function Hero() {
               variants={itemVariants}
               className="text-xl md:text-2xl mb-4 text-white/90"
             >
-              La tecnología al servicio de las personas.{' '}
-              <span className="font-semibold">Nunca en su lugar.</span>
+              {hero.subheadline}{' '}
+              <span className="font-semibold">{hero.subheadlineBold}</span>
             </motion.p>
 
             {/* Description */}
@@ -120,9 +117,7 @@ export default function Hero() {
               variants={itemVariants}
               className="text-lg text-white/75 mb-3 max-w-xl leading-relaxed"
             >
-              Conecto IA, personas y negocio para generar impacto sostenible en
-              los sectores de energía e industria. Más de 25 años liderando
-              transformaciones en +25 países.
+              {hero.description}
             </motion.p>
 
             {/* Mantra */}
@@ -130,7 +125,7 @@ export default function Hero() {
               variants={itemVariants}
               className="italic text-[var(--gold-light)]/80 text-base mb-8 font-light tracking-wide"
             >
-              "Nada me para."
+              {hero.mantra}
             </motion.p>
 
             {/* CTAs */}
@@ -142,13 +137,13 @@ export default function Hero() {
                 href="#contact"
                 className="bg-white text-[var(--teal-dark)] px-8 py-4 rounded-full font-semibold hover:bg-[var(--gold-light)] hover:text-white transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5 active:translate-y-0"
               >
-                Hablemos
+                {hero.ctaPrimary}
               </Link>
               <Link
                 href="#about"
                 className="border-2 border-white/70 text-white px-8 py-4 rounded-full font-semibold hover:bg-white hover:text-[var(--teal-dark)] transition-all duration-300 hover:-translate-y-0.5 active:translate-y-0"
               >
-                Conoce mi historia
+                {hero.ctaSecondary}
               </Link>
             </motion.div>
           </motion.div>
@@ -169,7 +164,7 @@ export default function Hero() {
               <div className="relative rounded-2xl overflow-hidden shadow-2xl w-72 h-[420px] md:w-80 md:h-[480px] xl:w-96 xl:h-[560px]">
                 <Image
                   src="/images/chema-hero.jpg"
-                  alt="Chema Salamanca — CEO y fundador de BEAI Energy"
+                  alt={hero.photoAlt}
                   fill
                   className="object-cover object-top"
                   priority
@@ -186,8 +181,8 @@ export default function Hero() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 1.1, duration: 0.5, ease: 'easeOut' }}
               >
-                <p className="text-xs text-white/70 mb-0.5">Físico · MBA · CEO</p>
-                <p className="font-semibold text-sm">+25 años de impacto global</p>
+                <p className="text-xs text-white/70 mb-0.5">{hero.floatingCardSub}</p>
+                <p className="font-semibold text-sm">{hero.floatingCardMain}</p>
               </motion.div>
             </div>
           </motion.div>
@@ -200,12 +195,10 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.85, duration: 0.6, ease: [0.25, 0.1, 0.25, 1] as const }}
         >
-          {stats.map((stat, i) => (
+          {(hero.stats as Array<{ value: string; label: string }>).map((stat, i) => (
             <div
-              key={stat.label}
-              className={`bg-white/5 backdrop-blur-sm px-6 py-5 text-center hover:bg-white/10 transition-colors ${
-                i < stats.length - 1 ? '' : ''
-              }`}
+              key={i}
+              className="bg-white/5 backdrop-blur-sm px-6 py-5 text-center hover:bg-white/10 transition-colors"
             >
               <p className="text-3xl md:text-4xl font-bold text-[var(--gold-light)]">
                 {stat.value}
@@ -226,9 +219,9 @@ export default function Hero() {
         <Link
           href="#about"
           className="flex flex-col items-center gap-1 text-white/60 hover:text-white transition-colors group"
-          aria-label="Ir a la sección Sobre mí"
+          aria-label={hero.scrollAriaLabel}
         >
-          <span className="text-xs tracking-widest uppercase">Scroll</span>
+          <span className="text-xs tracking-widest uppercase">{hero.scrollLabel}</span>
           <motion.svg
             className="w-6 h-6"
             fill="none"

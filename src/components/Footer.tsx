@@ -1,14 +1,7 @@
-import Link from 'next/link';
+'use client';
 
-const navLinks = [
-  { name: 'Inicio', href: '#hero' },
-  { name: 'Sobre mí', href: '#about' },
-  { name: 'Expertise', href: '#expertise' },
-  { name: 'Logros', href: '#achievements' },
-  { name: 'Trayectoria', href: '#brands' },
-  { name: 'Servicios', href: '#services' },
-  { name: 'Contacto', href: '#contact' },
-];
+import Link from 'next/link';
+import { useDictionary } from '@/i18n/context';
 
 const socialLinks = [
   {
@@ -32,7 +25,21 @@ const socialLinks = [
 ];
 
 export default function Footer() {
+  const dict = useDictionary();
+  const footer = dict.footer;
+  const nav = dict.nav;
+
   const currentYear = new Date().getFullYear();
+
+  const navLinks = [
+    { name: nav.home,         href: '#hero'         },
+    { name: nav.about,        href: '#about'        },
+    { name: nav.expertise,    href: '#expertise'    },
+    { name: nav.achievements, href: '#achievements' },
+    { name: nav.brands,       href: '#brands'       },
+    { name: nav.services,     href: '#services'     },
+    { name: nav.contact,      href: '#contact'      },
+  ];
 
   return (
     <footer className="bg-[var(--gray-dark)] text-white">
@@ -41,10 +48,9 @@ export default function Footer() {
         <div className="grid md:grid-cols-3 gap-12">
           {/* Brand */}
           <div>
-            <h3 className="text-2xl font-bold mb-4">Chema Salamanca</h3>
+            <h3 className="text-2xl font-bold mb-4">{footer.brand}</h3>
             <p className="text-white/70 mb-6 leading-relaxed">
-              Transformación Empresarial y Humana Aumentada con IA.
-              La tecnología al servicio de las personas, nunca en su lugar.
+              {footer.tagline}
             </p>
             {/* Social Links */}
             <div className="flex gap-4">
@@ -65,10 +71,10 @@ export default function Footer() {
 
           {/* Navigation */}
           <div>
-            <h4 className="font-semibold mb-4">Navegación</h4>
+            <h4 className="font-semibold mb-4">{footer.navigationTitle}</h4>
             <ul className="space-y-3">
               {navLinks.map((link) => (
-                <li key={link.name}>
+                <li key={link.href}>
                   <Link
                     href={link.href}
                     className="text-white/70 hover:text-[var(--teal-light)] transition-colors"
@@ -82,10 +88,9 @@ export default function Footer() {
 
           {/* BEAI Energy */}
           <div>
-            <h4 className="font-semibold mb-4">BEAI Energy</h4>
+            <h4 className="font-semibold mb-4">{footer.beaiTitle}</h4>
             <p className="text-white/70 mb-4">
-              Empresa nativa de IA especializada en soluciones para los sectores
-              de energía e industria.
+              {footer.beaiDescription}
             </p>
             <a
               href="https://beaienergy.com"
@@ -93,7 +98,7 @@ export default function Footer() {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 text-[var(--teal-light)] hover:text-white transition-colors"
             >
-              Visitar web
+              {footer.beaiLink}
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
               </svg>
@@ -106,10 +111,10 @@ export default function Footer() {
       <div className="border-t border-white/10">
         <div className="max-w-7xl mx-auto px-6 py-6 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-white/50 text-sm">
-            &copy; {currentYear} Chema Salamanca. Todos los derechos reservados.
+            &copy; {currentYear} {footer.copyright}
           </p>
           <p className="text-white/50 text-sm">
-            &ldquo;Más allá de lo artificial. Genuinamente humano.&rdquo;
+            &ldquo;{footer.motto}&rdquo;
           </p>
         </div>
       </div>
