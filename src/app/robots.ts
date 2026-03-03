@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: '*',
       allow: '/',
     },
-    sitemap: 'https://chemasalamanca.com/sitemap.xml',
+    sitemap: 'https://chemasalamanca.me/sitemap.xml',
   };
 }

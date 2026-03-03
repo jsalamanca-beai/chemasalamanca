@@ -41,7 +41,7 @@ export async function generateMetadata({
   const isSpanish = locale === 'es';
 
   const shared = {
-    metadataBase: new URL('https://chemasalamanca.com'),
+    metadataBase: new URL('https://chemasalamanca.me'),
     icons: { icon: '/favicon.svg' },
   };
 
@@ -72,24 +72,24 @@ export async function generateMetadata({
         googleBot: { index: true, follow: true },
       },
       alternates: {
-        canonical: 'https://chemasalamanca.com/es',
+        canonical: 'https://chemasalamanca.me/es',
         languages: {
-          en: 'https://chemasalamanca.com/en',
-          es: 'https://chemasalamanca.com/es',
+          en: 'https://chemasalamanca.me/en',
+          es: 'https://chemasalamanca.me/es',
         },
       },
       openGraph: {
         type: 'website',
         locale: 'es_ES',
         alternateLocale: 'en_US',
-        url: 'https://chemasalamanca.com/es',
+        url: 'https://chemasalamanca.me/es',
         siteName: 'Chema Salamanca',
         title: 'Chema Salamanca | Transformaci\u00f3n Empresarial y Humana Aumentada con IA',
         description:
           'CEO y Fundador de BEAI Energy. F\u00edsico, MBA y l\u00edder global con m\u00e1s de 25 a\u00f1os impulsando la transformaci\u00f3n con IA \u00e9tica.',
         images: [
           {
-            url: 'https://chemasalamanca.com/images/chema-og.jpg',
+            url: 'https://chemasalamanca.me/images/chema-og.jpg',
             width: 1200,
             height: 630,
             alt: 'Chema Salamanca \u2014 Transformaci\u00f3n Empresarial y Humana Aumentada con IA',
@@ -101,7 +101,7 @@ export async function generateMetadata({
         title: 'Chema Salamanca | Transformaci\u00f3n con IA',
         description:
           'CEO y Fundador de BEAI Energy. +25 a\u00f1os liderando transformaciones en sectores de energ\u00eda e industria.',
-        images: ['https://chemasalamanca.com/images/chema-og.jpg'],
+        images: ['https://chemasalamanca.me/images/chema-og.jpg'],
         creator: '@chemasalamanca',
       },
     };
@@ -134,24 +134,24 @@ export async function generateMetadata({
       googleBot: { index: true, follow: true },
     },
     alternates: {
-      canonical: 'https://chemasalamanca.com/en',
+      canonical: 'https://chemasalamanca.me/en',
       languages: {
-        en: 'https://chemasalamanca.com/en',
-        es: 'https://chemasalamanca.com/es',
+        en: 'https://chemasalamanca.me/en',
+        es: 'https://chemasalamanca.me/es',
       },
     },
     openGraph: {
       type: 'website',
       locale: 'en_US',
       alternateLocale: 'es_ES',
-      url: 'https://chemasalamanca.com/en',
+      url: 'https://chemasalamanca.me/en',
       siteName: 'Chema Salamanca',
       title: 'Chema Salamanca | Augmented Business & Human Transformation with AI',
       description:
         'CEO & Founder of BEAI Energy. Physicist, MBA, and global leader with 25+ years driving transformation in energy and industrial sectors with ethical AI.',
       images: [
         {
-          url: 'https://chemasalamanca.com/images/chema-og.jpg',
+          url: 'https://chemasalamanca.me/images/chema-og.jpg',
           width: 1200,
           height: 630,
           alt: 'Chema Salamanca \u2014 Augmented Business & Human Transformation with AI',
@@ -163,7 +163,7 @@ export async function generateMetadata({
       title: 'Chema Salamanca | Augmented Transformation with AI',
       description:
         'CEO & Founder of BEAI Energy. 25+ years leading transformations in energy and industrial sectors.',
-      images: ['https://chemasalamanca.com/images/chema-og.jpg'],
+      images: ['https://chemasalamanca.me/images/chema-og.jpg'],
       creator: '@chemasalamanca',
     },
   };
@@ -183,8 +183,8 @@ function PersonSchema({ locale }: { locale: string }) {
       url: 'https://beaienergy.com',
     },
     url: isSpanish
-      ? 'https://chemasalamanca.com/es'
-      : 'https://chemasalamanca.com/en',
+      ? 'https://chemasalamanca.me/es'
+      : 'https://chemasalamanca.me/en',
     sameAs: [
       'https://www.linkedin.com/in/chema-salamanca-a869402/',
       'https://beaienergy.com',
@@ -229,8 +229,8 @@ function WebsiteSchema({ locale }: { locale: string }) {
     '@type': 'WebSite',
     name: 'Chema Salamanca',
     url: isSpanish
-      ? 'https://chemasalamanca.com/es'
-      : 'https://chemasalamanca.com/en',
+      ? 'https://chemasalamanca.me/es'
+      : 'https://chemasalamanca.me/en',
     description: isSpanish
       ? 'Transformaci\u00f3n Empresarial y Humana Aumentada con IA. CEO y Fundador de BEAI Energy.'
       : 'Augmented Business & Human Transformation with AI. CEO & Founder of BEAI Energy.',

@@ -147,7 +147,7 @@ function buildEmailHtml(data: ContactFormData): string {
                 Nuevo mensaje desde tu web
               </h1>
               <p style="margin:6px 0 0; color:#ccfbf1; font-size:14px;">
-                Formulario de contacto &middot; chemasalamanca.com
+                Formulario de contacto &middot; chemasalamanca.me
               </p>
             </td>
           </tr>
@@ -200,7 +200,7 @@ function buildEmailHtml(data: ContactFormData): string {
           <tr>
             <td style="padding:20px 32px; background-color:#f9fafb; border-top:1px solid #e5e7eb;">
               <p style="margin:0; font-size:12px; color:#9ca3af; text-align:center;">
-                Este email fue enviado desde el formulario de contacto de chemasalamanca.com
+                Este email fue enviado desde el formulario de contacto de chemasalamanca.me
               </p>
             </td>
           </tr>
@@ -276,8 +276,8 @@ export async function POST(request: NextRequest) {
     const subjectLabel = subjectLabels[data.subject] || data.subject;
 
     const { error: resendError } = await resend.emails.send({
-      from: 'Formulario Web <onboarding@resend.dev>',
-      to: 'jose.salamanca@nichotecnologico.com',
+      from: 'Formulario Web <web@chemasalamanca.me>',
+      to: process.env.CONTACT_EMAIL || 'jose.salamanca@nichotecnologico.com',
       replyTo: data.email,
       subject: `[Web] ${subjectLabel} - ${data.name}`,
       html: buildEmailHtml(data),
