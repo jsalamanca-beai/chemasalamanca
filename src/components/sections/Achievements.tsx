@@ -24,7 +24,7 @@ const statsConfig: StatConfig[] = [
     target: 25,
     prefix: '+',
     suffix: '',
-    label: 'Paises',
+    label: 'Países',
     description: 'Experiencia global multicultural',
     useComma: false,
   },
@@ -33,7 +33,7 @@ const statsConfig: StatConfig[] = [
     prefix: '$',
     suffix: 'M',
     label: 'P&L Anual',
-    description: 'Gestion de grandes presupuestos',
+    description: 'Gestión de grandes presupuestos',
     useComma: false,
   },
   {
@@ -49,7 +49,7 @@ const statsConfig: StatConfig[] = [
     prefix: '+',
     suffix: 'pp',
     label: 'EBITDA',
-    description: 'Incremento en 3 anos',
+    description: 'Incremento en 3 años',
     useComma: false,
   },
 ];
@@ -57,30 +57,30 @@ const statsConfig: StatConfig[] = [
 const achievements = [
   {
     year: '2025',
-    title: 'Fundacion de BEAI Energy',
+    title: 'Fundación de BEAI Energy',
     description:
-      'Creacion de empresa nativa de IA para sectores energetico e industrial en Espana y expansion a 3 paises.',
+      'Creación de empresa nativa de IA para sectores energético e industrial en España y expansión a 3 países.',
     highlight: true,
   },
   {
     year: '2025',
     title: 'Finalista Retos All4Zero',
     description:
-      'Con la solucion CorrosionAI de Inteligencia Artificial aplicada a mantenimiento predictivo.',
+      'Con la solución CorrosionAI de Inteligencia Artificial aplicada a mantenimiento predictivo.',
     highlight: false,
   },
   {
     year: '2024',
-    title: 'Transformacion UST',
+    title: 'Transformación UST',
     description:
-      'Liderazgo que incremento EBITDA de -7% a 13% en 3 anos. Gestion de equipo de +2,000 consultores y P&L de $200M.',
+      'Liderazgo que incrementó EBITDA de -7% a 13% en 3 años. Gestión de equipo de +2,000 consultores y P&L de $200M.',
     highlight: false,
   },
   {
     year: '2023',
     title: 'Top Employer #20',
     description:
-      'Reconocimiento como una de las 20 mejores empresas para trabajar en Espana bajo mi gestion.',
+      'Reconocimiento como una de las 20 mejores empresas para trabajar en España bajo mi gestión.',
     highlight: false,
   },
   {
@@ -94,7 +94,7 @@ const achievements = [
     year: '2008',
     title: 'Emprendedor: Seema Partners',
     description:
-      'Cofundador de firma de consultoria en TIC y gestion en Emiratos Arabes Unidos y Arabia Saudi.',
+      'Cofundador de firma de consultoría en TIC y gestión en Emiratos Árabes Unidos y Arabia Saudí.',
     highlight: false,
   },
 ];
@@ -143,7 +143,7 @@ export default function Achievements() {
             Impacto medible y reconocido
           </h2>
           <p className="text-lg text-white/70 max-w-2xl mx-auto">
-            Mi trayectoria esta respaldada por resultados concretos y
+            Mi trayectoria está respaldada por resultados concretos y
             reconocimientos internacionales.
           </p>
         </AnimateOnScroll>
@@ -231,8 +231,12 @@ export default function Achievements() {
           <p className="text-white/60 mb-4">Otras menciones</p>
           <div className="flex flex-wrap justify-center gap-4">
             {[
+              'TOGAF Certificado',
+              'MBA',
+              'Consultor EFQM Certificado',
               'Consultor Banco Mundial',
-              'Colegio Oficial de Fisicos',
+              'Fundador Capítulo Español de Arquitectos Empresariales',
+              'Colegio Oficial de Físicos',
               'PMI Project Management Institute',
               'Proyecto YgualeX (impacto social)',
             ].map((mention, index) => (

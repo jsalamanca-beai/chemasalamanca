@@ -19,14 +19,14 @@ interface Recognition {
 const companies: Company[] = [
   {
     name: 'UST',
-    years: '2021 – 2025',
-    role: 'Managing Director Iberia & LATAM',
-    sector: 'Tecnologia y Consultoría',
+    years: '2014 – 2025',
+    role: 'Managing Director Iberia & LATAM (2022–2025)',
+    sector: 'Tecnología y Consultoría',
   },
   {
     name: 'Prosegur',
     years: '2018 – 2020',
-    role: 'Director de Transformacion Digital',
+    role: 'Director de Transformación Digital',
     sector: 'Seguridad y Servicios',
   },
   {
@@ -36,7 +36,7 @@ const companies: Company[] = [
     sector: 'Bienes de consumo',
   },
   {
-    name: 'Roads & Transport Authority Dubai',
+    name: 'RTA (Roads & Transport Authority Dubai)',
     years: '2012 – 2015',
     role: 'Enterprise Architect Lead',
     sector: 'Gobierno y Transporte',
@@ -45,13 +45,13 @@ const companies: Company[] = [
     name: 'Seema Partners',
     years: '2008 – 2012',
     role: 'Co-fundador & CEO',
-    sector: 'Consultoria TIC — EAU & Arabia Saudi',
+    sector: 'Consultoría TIC — EAU & Arabia Saudí',
   },
   {
-    name: 'Colegio Oficial de Fisicos',
+    name: 'Colegio Oficial de Físicos',
     years: 'Miembro activo',
-    role: 'Fisico colegiado',
-    sector: 'Asociacion profesional',
+    role: 'Físico colegiado',
+    sector: 'Asociación profesional',
   },
 ];
 
@@ -65,7 +65,7 @@ const recognitions: Recognition[] = [
     ),
   },
   {
-    label: 'Premio iCMG 2015',
+    label: 'Mejor proyecto EA del mundo — iCMG 2015',
     icon: (
       <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
@@ -73,10 +73,26 @@ const recognitions: Recognition[] = [
     ),
   },
   {
-    label: 'Top Employer #20',
+    label: 'Top Employer (7 años en UST)',
     icon: (
       <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+      </svg>
+    ),
+  },
+  {
+    label: 'Great Place to Work (3 años en UST)',
+    icon: (
+      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+      </svg>
+    ),
+  },
+  {
+    label: '2.º Premio Centro Español de Logística — Prosegur',
+    icon: (
+      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
       </svg>
     ),
   },
@@ -103,7 +119,7 @@ export default function Brands() {
             Empresas donde he dejado huella
           </h2>
           <p className="text-lg text-[var(--gray-medium)] max-w-2xl mx-auto">
-            Mas de 25 anos construyendo valor en organizaciones lideres a nivel
+            Más de 25 años construyendo valor en organizaciones líderes a nivel
             global, desde grandes corporaciones hasta emprendimientos propios.
           </p>
         </AnimateOnScroll>

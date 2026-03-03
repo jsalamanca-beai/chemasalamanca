@@ -6,10 +6,10 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
 
 const stats = [
-  { value: '+25', label: 'Paises' },
+  { value: '+25', label: 'Países' },
   { value: '$200M', label: 'P&L Anual' },
   { value: '+2.000', label: 'Personas lideradas' },
-  { value: '+20pp', label: 'EBITDA en 3 anos' },
+  { value: '+20pp', label: 'EBITDA en 3 años' },
 ];
 
 const containerVariants = {
@@ -102,7 +102,7 @@ export default function Hero() {
               variants={itemVariants}
               className="text-4xl md:text-5xl xl:text-6xl font-bold mb-5 leading-tight"
             >
-              Transformacion Empresarial y Humana{' '}
+              Transformación Empresarial y Humana{' '}
               <span className="text-[var(--gold-light)]">Aumentada</span>
             </motion.h1>
 
@@ -111,7 +111,7 @@ export default function Hero() {
               variants={itemVariants}
               className="text-xl md:text-2xl mb-4 text-white/90"
             >
-              La tecnologia al servicio de las personas.{' '}
+              La tecnología al servicio de las personas.{' '}
               <span className="font-semibold">Nunca en su lugar.</span>
             </motion.p>
 
@@ -121,8 +121,8 @@ export default function Hero() {
               className="text-lg text-white/75 mb-3 max-w-xl leading-relaxed"
             >
               Conecto IA, personas y negocio para generar impacto sostenible en
-              los sectores de energia e industria. Mas de 25 anos liderando
-              transformaciones en +25 paises.
+              los sectores de energía e industria. Más de 25 años liderando
+              transformaciones en +25 países.
             </motion.p>
 
             {/* Mantra */}
@@ -186,8 +186,8 @@ export default function Hero() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 1.1, duration: 0.5, ease: 'easeOut' }}
               >
-                <p className="text-xs text-white/70 mb-0.5">Fisico · MBA · CEO</p>
-                <p className="font-semibold text-sm">+25 anos de impacto global</p>
+                <p className="text-xs text-white/70 mb-0.5">Físico · MBA · CEO</p>
+                <p className="font-semibold text-sm">+25 años de impacto global</p>
               </motion.div>
             </div>
           </motion.div>
@@ -226,7 +226,7 @@ export default function Hero() {
         <Link
           href="#about"
           className="flex flex-col items-center gap-1 text-white/60 hover:text-white transition-colors group"
-          aria-label="Ir a la seccion Sobre mi"
+          aria-label="Ir a la sección Sobre mí"
         >
           <span className="text-xs tracking-widest uppercase">Scroll</span>
           <motion.svg

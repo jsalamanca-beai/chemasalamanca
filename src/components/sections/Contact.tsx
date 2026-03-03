@@ -52,7 +52,7 @@ export default function Contact() {
         setErrorMessage(error.message);
       } else {
         setErrorMessage(
-          'No se pudo conectar con el servidor. Por favor, intenta de nuevo mas tarde.'
+          'No se pudo conectar con el servidor. Por favor, intenta de nuevo más tarde.'
         );
       }
     } finally {
@@ -70,8 +70,8 @@ export default function Contact() {
             Hablemos
           </h2>
           <p className="text-lg text-[var(--gray-medium)] max-w-2xl mx-auto">
-            Si buscas transformar tu organizacion con IA de forma etica y efectiva,
-            o explorar oportunidades de colaboracion, estare encantado de conversar.
+            Si buscas transformar tu organización con IA de forma ética y efectiva,
+            o explorar oportunidades de colaboración, estaré encantado de conversar.
           </p>
         </div>
 
@@ -116,7 +116,7 @@ export default function Contact() {
                     </svg>
                   </div>
                   <div>
-                    <p className="font-semibold text-[var(--gray-dark)]">Telefono</p>
+                    <p className="font-semibold text-[var(--gray-dark)]">Teléfono</p>
                     <a
                       href="tel:+34629275376"
                       className="text-[var(--teal)] hover:text-[var(--teal-dark)] transition-colors"
@@ -155,8 +155,8 @@ export default function Contact() {
                     </svg>
                   </div>
                   <div>
-                    <p className="font-semibold text-[var(--gray-dark)]">Ubicacion</p>
-                    <p className="text-[var(--gray-medium)]">Madrid, Espana</p>
+                    <p className="font-semibold text-[var(--gray-dark)]">Ubicación</p>
+                    <p className="text-[var(--gray-medium)]">Madrid, España</p>
                   </div>
                 </div>
               </div>
@@ -177,7 +177,7 @@ export default function Contact() {
                     Mensaje enviado
                   </h3>
                   <p className="text-[var(--gray-medium)]">
-                    Gracias por contactar. Te respondere lo antes posible.
+                    Gracias por contactar. Te responderé lo antes posible.
                   </p>
                   <button
                     onClick={() => {
@@ -276,11 +276,11 @@ export default function Contact() {
                         isError ? 'border-red-300' : 'border-gray-200'
                       } focus:border-[var(--teal)] focus:ring-2 focus:ring-[var(--teal)]/20 outline-none transition-all bg-white`}
                     >
-                      <option value="">Selecciona una opcion</option>
-                      <option value="asesoria">Asesoria Estrategica en IA</option>
-                      <option value="consejo">Consejos de Administracion</option>
+                      <option value="">Selecciona una opción</option>
+                      <option value="asesoria">Asesoría Estratégica en IA</option>
+                      <option value="consejo">Consejos de Administración</option>
                       <option value="conferencia">Conferencia o Ponencia</option>
-                      <option value="colaboracion">Colaboracion / Emprendimiento</option>
+                      <option value="colaboracion">Colaboración / Emprendimiento</option>
                       <option value="otro">Otro</option>
                     </select>
                   </div>
@@ -302,7 +302,7 @@ export default function Contact() {
                       className={`w-full px-4 py-3 rounded-lg border ${
                         isError ? 'border-red-300' : 'border-gray-200'
                       } focus:border-[var(--teal)] focus:ring-2 focus:ring-[var(--teal)]/20 outline-none transition-all resize-none`}
-                      placeholder="Cuentame sobre tu proyecto o consulta..."
+                      placeholder="Cuéntame sobre tu proyecto o consulta..."
                     />
                   </div>
 

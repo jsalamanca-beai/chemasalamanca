@@ -6,14 +6,14 @@ import AnimateOnScroll from '@/components/ui/AnimateOnScroll';
 
 const services = [
   {
-    title: 'Asesoria Estrategica en IA',
+    title: 'Asesoría Estratégica en IA',
     description:
-      'Ayudo a organizaciones de energia e industria a integrar inteligencia artificial de forma etica y eficiente. Desde la definicion de la estrategia hasta la implementacion.',
+      'Ayudo a organizaciones de energía e industria a integrar inteligencia artificial de forma ética y eficiente. Desde la definición de la estrategia hasta la implementación.',
     features: [
-      'Diagnostico de madurez digital',
-      'Roadmap de transformacion con IA',
-      'Implementacion de soluciones GenAI',
-      'Gobernanza y etica en IA',
+      'Diagnóstico de madurez digital',
+      'Roadmap de transformación con IA',
+      'Implementación de soluciones GenAI',
+      'Gobernanza y ética en IA',
     ],
     icon: (
       <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -23,13 +23,13 @@ const services = [
     cta: 'Explorar',
   },
   {
-    title: 'Consejos de Administracion',
+    title: 'Consejos de Administración',
     description:
-      'Aporto vision estrategica y experiencia internacional en consejos y comites asesores. Perfil tecnologico-humano con foco en transformacion digital y crecimiento sostenible.',
+      'Aporto visión estratégica y experiencia internacional en consejos y comités asesores. Perfil tecnológico-humano con foco en transformación digital y crecimiento sostenible.',
     features: [
       'Consejero independiente',
-      'Comites de tecnologia e innovacion',
-      'Supervision de transformacion digital',
+      'Comités de tecnología e innovación',
+      'Supervisión de transformación digital',
       'Gobernanza corporativa',
     ],
     icon: (
@@ -37,12 +37,12 @@ const services = [
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
       </svg>
     ),
-    cta: 'Conocer mas',
+    cta: 'Conocer más',
   },
   {
     title: 'Conferencias y Ponencias',
     description:
-      'Comparto conocimiento y experiencias sobre IA, transformacion digital, liderazgo tecnologico y el futuro del trabajo en eventos corporativos y foros internacionales.',
+      'Comparto conocimiento y experiencias sobre IA, transformación digital, liderazgo tecnológico y el futuro del trabajo en eventos corporativos y foros internacionales.',
     features: [
       'Keynotes corporativas',
       'Paneles de expertos',
@@ -54,16 +54,16 @@ const services = [
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
       </svg>
     ),
-    cta: 'Invitame',
+    cta: 'Invítame',
   },
   {
     title: 'Colaboraciones y Emprendimientos',
     description:
-      'Busco alianzas estrategicas con emprendedores, inversores y empresas que compartan la vision de una tecnologia al servicio de las personas.',
+      'Busco alianzas estratégicas con emprendedores, inversores y empresas que compartan la visión de una tecnología al servicio de las personas.',
     features: [
       'Co-fundador en startups',
       'Advisor en proyectos de IA',
-      'Partnerships estrategicos',
+      'Partnerships estratégicos',
       'Inversiones de impacto',
     ],
     icon: (
@@ -77,13 +77,13 @@ const services = [
 
 const speakingTopics = [
   'IA aplicada al negocio',
-  'Transformacion digital',
+  'Transformación digital',
   'Excelencia operativa',
   'Arquitectura empresarial',
-  'Innovacion tecnologica',
-  'Liderazgo y gestion del cambio',
+  'Innovación tecnológica',
+  'Liderazgo y gestión del cambio',
   'Gobernanza responsable de IA',
-  'Energia e industria 4.0',
+  'Energía e industria 4.0',
 ];
 
 export default function Services() {
@@ -94,11 +94,11 @@ export default function Services() {
         <AnimateOnScroll className="text-center mb-16">
           <p className="text-[var(--teal)] font-semibold mb-2">SERVICIOS</p>
           <h2 className="text-3xl md:text-4xl font-bold text-[var(--gray-dark)] mb-4">
-            Como puedo ayudarte
+            Cómo puedo ayudarte
           </h2>
           <p className="text-lg text-[var(--gray-medium)] max-w-2xl mx-auto">
             Pongo mi experiencia y conocimiento al servicio de organizaciones que
-            buscan transformarse con proposito.
+            buscan transformarse con propósito.
           </p>
         </AnimateOnScroll>
 
@@ -186,7 +186,7 @@ export default function Services() {
           <div className="bg-white rounded-2xl p-8 md:p-12">
             <AnimateOnScroll className="text-center mb-8">
               <h3 className="text-2xl font-bold text-[var(--gray-dark)]">
-                Tematicas de conferencias
+                Temáticas de conferencias
               </h3>
             </AnimateOnScroll>
 
