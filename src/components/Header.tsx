@@ -1,13 +1,15 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const navItems = [
   { name: 'Inicio', href: '#hero' },
-  { name: 'Sobre mi', href: '#about' },
+  { name: 'Sobre mí', href: '#about' },
   { name: 'Expertise', href: '#expertise' },
   { name: 'Logros', href: '#achievements' },
+  { name: 'Trayectoria', href: '#brands' },
   { name: 'Servicios', href: '#services' },
   { name: 'Contacto', href: '#contact' },
 ];
@@ -15,6 +17,7 @@ const navItems = [
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState<string>('#hero');
 
   useEffect(() => {
     const handleScroll = () => {
@@ -22,6 +25,42 @@ export default function Header() {
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // IntersectionObserver for active section tracking
+  useEffect(() => {
+    const sectionIds = navItems.map((item) => item.href.replace('#', ''));
+    const observers: IntersectionObserver[] = [];
+
+    sectionIds.forEach((id) => {
+      const element = document.getElementById(id);
+      if (!element) return;
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              setActiveSection(`#${id}`);
+            }
+          });
+        },
+        {
+          rootMargin: '-20% 0px -60% 0px',
+          threshold: 0,
+        }
+      );
+
+      observer.observe(element);
+      observers.push(observer);
+    });
+
+    return () => {
+      observers.forEach((observer) => observer.disconnect());
+    };
+  }, []);
+
+  const handleNavClick = useCallback(() => {
+    setIsMobileMenuOpen(false);
   }, []);
 
   return (
@@ -47,15 +86,22 @@ export default function Header() {
         {/* Desktop Navigation */}
         <ul className="hidden md:flex items-center gap-8">
           {navItems.map((item) => (
-            <li key={item.name}>
+            <li key={item.name} className="relative">
               <Link
                 href={item.href}
                 className={`text-sm font-medium transition-colors hover:text-[var(--teal)] ${
-                  isScrolled ? 'text-[var(--gray-dark)]' : 'text-white'
+                  activeSection === item.href
+                    ? 'text-[var(--teal)]'
+                    : isScrolled
+                    ? 'text-[var(--gray-dark)]'
+                    : 'text-white'
                 }`}
               >
                 {item.name}
               </Link>
+              {activeSection === item.href && (
+                <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1.5 h-1.5 bg-[var(--teal)] rounded-full" />
+              )}
             </li>
           ))}
           <li>
@@ -101,33 +147,48 @@ export default function Header() {
         </button>
       </nav>
 
-      {/* Mobile Menu */}
-      {isMobileMenuOpen && (
-        <div className="md:hidden bg-white shadow-lg">
-          <ul className="py-4 px-6 space-y-4">
-            {navItems.map((item) => (
-              <li key={item.name}>
+      {/* Mobile Menu with AnimatePresence */}
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div
+            className="md:hidden bg-white shadow-lg overflow-hidden"
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: 'auto', opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.3, ease: 'easeInOut' }}
+          >
+            <ul className="py-4 px-6 space-y-4">
+              {navItems.map((item) => (
+                <li key={item.name}>
+                  <Link
+                    href={item.href}
+                    className={`block font-medium transition-colors ${
+                      activeSection === item.href
+                        ? 'text-[var(--teal)]'
+                        : 'text-[var(--gray-dark)] hover:text-[var(--teal)]'
+                    }`}
+                    onClick={handleNavClick}
+                  >
+                    {activeSection === item.href && (
+                      <span className="inline-block w-1.5 h-1.5 bg-[var(--teal)] rounded-full mr-2 align-middle" />
+                    )}
+                    {item.name}
+                  </Link>
+                </li>
+              ))}
+              <li>
                 <Link
-                  href={item.href}
-                  className="block text-[var(--gray-dark)] font-medium hover:text-[var(--teal)] transition-colors"
-                  onClick={() => setIsMobileMenuOpen(false)}
+                  href="#contact"
+                  className="block bg-[var(--teal)] text-white px-5 py-2 rounded-full text-center font-medium hover:bg-[var(--teal-dark)] transition-colors"
+                  onClick={handleNavClick}
                 >
-                  {item.name}
+                  Hablemos
                 </Link>
               </li>
-            ))}
-            <li>
-              <Link
-                href="#contact"
-                className="block bg-[var(--teal)] text-white px-5 py-2 rounded-full text-center font-medium hover:bg-[var(--teal-dark)] transition-colors"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                Hablemos
-              </Link>
-            </li>
-          </ul>
-        </div>
-      )}
+            </ul>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   );
 }

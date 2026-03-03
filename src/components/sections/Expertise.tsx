@@ -1,3 +1,8 @@
+'use client';
+
+import { motion } from 'framer-motion';
+import AnimateOnScroll from '@/components/ui/AnimateOnScroll';
+
 const expertiseAreas = [
   {
     title: 'Estrategia y Arquitectura Empresarial',
@@ -50,7 +55,7 @@ export default function Expertise() {
     <section id="expertise" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-6">
         {/* Section Header */}
-        <div className="text-center mb-16">
+        <AnimateOnScroll className="text-center mb-16">
           <p className="text-[var(--teal)] font-semibold mb-2">EXPERTISE</p>
           <h2 className="text-3xl md:text-4xl font-bold text-[var(--gray-dark)] mb-4">
             Mi talento al servicio de tu organizacion
@@ -60,59 +65,76 @@ export default function Expertise() {
             generar impacto real y sostenible. Estas son las areas donde puedo
             aportar valor a tu empresa.
           </p>
-        </div>
+        </AnimateOnScroll>
 
         {/* Expertise Grid */}
         <div className="grid md:grid-cols-2 gap-8">
           {expertiseAreas.map((area, index) => (
-            <div
+            <AnimateOnScroll
               key={area.title}
-              className="group relative bg-[var(--gray-light)] rounded-2xl p-8 hover:shadow-xl transition-all duration-300 overflow-hidden"
+              delay={index * 0.12}
+              direction={index % 2 === 0 ? 'left' : 'right'}
             >
-              {/* Background decoration */}
-              <div
-                className="absolute top-0 right-0 w-32 h-32 rounded-bl-full opacity-10 transition-opacity group-hover:opacity-20"
-                style={{ backgroundColor: area.color }}
-              />
-
-              {/* Icon */}
-              <div
-                className="w-16 h-16 rounded-xl flex items-center justify-center mb-6 transition-transform group-hover:scale-110"
-                style={{ backgroundColor: `${area.color}20`, color: area.color }}
+              <motion.div
+                className="group relative bg-[var(--gray-light)] rounded-2xl p-8 overflow-hidden cursor-default h-full"
+                whileHover={{
+                  y: -8,
+                  boxShadow:
+                    '0 25px 50px -12px rgba(0,0,0,0.18)',
+                }}
+                transition={{ duration: 0.28, ease: 'easeOut' }}
               >
-                {area.icon}
-              </div>
+                {/* Background decoration */}
+                <div
+                  className="absolute top-0 right-0 w-32 h-32 rounded-bl-full opacity-10 transition-opacity group-hover:opacity-25"
+                  style={{ backgroundColor: area.color }}
+                />
 
-              {/* Content */}
-              <h3 className="text-xl font-bold text-[var(--gray-dark)] mb-4">
-                {area.title}
-              </h3>
-              <p className="text-[var(--gray-medium)] leading-relaxed">
-                {area.description}
-              </p>
+                {/* Icon */}
+                <div
+                  className="w-16 h-16 rounded-xl flex items-center justify-center mb-6 transition-transform group-hover:scale-110"
+                  style={{ backgroundColor: `${area.color}20`, color: area.color }}
+                >
+                  {area.icon}
+                </div>
 
-              {/* Hover indicator */}
-              <div
-                className="absolute bottom-0 left-0 h-1 w-0 group-hover:w-full transition-all duration-500"
-                style={{ backgroundColor: area.color }}
-              />
-            </div>
+                {/* Content */}
+                <h3 className="text-xl font-bold text-[var(--gray-dark)] mb-4">
+                  {area.title}
+                </h3>
+                <p className="text-[var(--gray-medium)] leading-relaxed">
+                  {area.description}
+                </p>
+
+                {/* Animated bottom border */}
+                <div
+                  className="absolute bottom-0 left-0 h-1 w-0 group-hover:w-full transition-all duration-500"
+                  style={{ backgroundColor: area.color }}
+                />
+              </motion.div>
+            </AnimateOnScroll>
           ))}
         </div>
 
         {/* Mission Statement */}
-        <div className="mt-16 bg-gradient-to-r from-[var(--teal)] to-[var(--teal-dark)] rounded-2xl p-8 md:p-12 text-white text-center">
-          <h3 className="text-2xl md:text-3xl font-bold mb-4">Mi mision</h3>
-          <p className="text-lg md:text-xl max-w-4xl mx-auto leading-relaxed opacity-95">
-            Disenar e implementar estrategias sostenibles que conectan tecnologia,
-            IA, personas y negocio, utilizando la IA para{' '}
-            <strong>amplificar la inteligencia humana y empresarial</strong>,
-            generando innovacion con proposito, eficiencia y valor sostenible.
-          </p>
-          <p className="mt-6 text-[var(--gold-light)] font-semibold text-lg">
-            La tecnologia al servicio de las personas, nunca en su lugar.
-          </p>
-        </div>
+        <AnimateOnScroll delay={0.2} direction="up">
+          <motion.div
+            className="mt-16 bg-gradient-to-r from-[var(--teal)] to-[var(--teal-dark)] rounded-2xl p-8 md:p-12 text-white text-center"
+            whileHover={{ scale: 1.01 }}
+            transition={{ duration: 0.25, ease: 'easeOut' }}
+          >
+            <h3 className="text-2xl md:text-3xl font-bold mb-4">Mi mision</h3>
+            <p className="text-lg md:text-xl max-w-4xl mx-auto leading-relaxed opacity-95">
+              Disenar e implementar estrategias sostenibles que conectan tecnologia,
+              IA, personas y negocio, utilizando la IA para{' '}
+              <strong>amplificar la inteligencia humana y empresarial</strong>,
+              generando innovacion con proposito, eficiencia y valor sostenible.
+            </p>
+            <p className="mt-6 text-[var(--gold-light)] font-semibold text-lg">
+              La tecnologia al servicio de las personas, nunca en su lugar.
+            </p>
+          </motion.div>
+        </AnimateOnScroll>
       </div>
     </section>
   );

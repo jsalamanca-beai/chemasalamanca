@@ -2,9 +2,10 @@ import Link from 'next/link';
 
 const navLinks = [
   { name: 'Inicio', href: '#hero' },
-  { name: 'Sobre mi', href: '#about' },
+  { name: 'Sobre mí', href: '#about' },
   { name: 'Expertise', href: '#expertise' },
   { name: 'Logros', href: '#achievements' },
+  { name: 'Trayectoria', href: '#brands' },
   { name: 'Servicios', href: '#services' },
   { name: 'Contacto', href: '#contact' },
 ];
@@ -42,8 +43,8 @@ export default function Footer() {
           <div>
             <h3 className="text-2xl font-bold mb-4">Chema Salamanca</h3>
             <p className="text-white/70 mb-6 leading-relaxed">
-              Transformacion Empresarial y Humana Aumentada con IA.
-              La tecnologia al servicio de las personas, nunca en su lugar.
+              Transformación Empresarial y Humana Aumentada con IA.
+              La tecnología al servicio de las personas, nunca en su lugar.
             </p>
             {/* Social Links */}
             <div className="flex gap-4">
@@ -64,7 +65,7 @@ export default function Footer() {
 
           {/* Navigation */}
           <div>
-            <h4 className="font-semibold mb-4">Navegacion</h4>
+            <h4 className="font-semibold mb-4">Navegación</h4>
             <ul className="space-y-3">
               {navLinks.map((link) => (
                 <li key={link.name}>
@@ -84,7 +85,7 @@ export default function Footer() {
             <h4 className="font-semibold mb-4">BEAI Energy</h4>
             <p className="text-white/70 mb-4">
               Empresa nativa de IA especializada en soluciones para los sectores
-              de energia e industria.
+              de energía e industria.
             </p>
             <a
               href="https://beaienergy.com"
@@ -108,7 +109,7 @@ export default function Footer() {
             &copy; {currentYear} Chema Salamanca. Todos los derechos reservados.
           </p>
           <p className="text-white/50 text-sm">
-            "Mas alla de lo artificial. Genuinamente humano."
+            &ldquo;Más allá de lo artificial. Genuinamente humano.&rdquo;
           </p>
         </div>
       </div>
