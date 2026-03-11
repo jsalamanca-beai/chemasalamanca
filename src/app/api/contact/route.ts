@@ -284,11 +284,15 @@ export async function POST(request: NextRequest) {
     });
 
     if (resendError) {
-      console.error('Resend error:', resendError);
+      console.error('Resend error:', JSON.stringify(resendError));
       return NextResponse.json(
         {
           error:
             'No se pudo enviar el mensaje. Por favor, intenta de nuevo o contacta por email.',
+          debug: process.env.NODE_ENV === 'development' ? resendError : {
+            name: resendError.name,
+            message: resendError.message,
+          },
         },
         { status: 500 }
       );
