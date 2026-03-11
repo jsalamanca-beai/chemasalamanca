@@ -191,10 +191,10 @@ export const dictionary = {
         sector: 'Tecnolog\u00eda y Consultor\u00eda',
       },
       {
-        name: 'Prosegur',
-        years: '2018 \u2013 2020',
-        role: 'Director de Transformaci\u00f3n Digital',
-        sector: 'Seguridad y Servicios',
+        name: 'Hiscox Europe',
+        years: '2015 \u2013 2016',
+        role: 'Interim Head of IT Europe',
+        sector: 'Seguros',
       },
       {
         name: 'Procter & Gamble',
@@ -227,7 +227,7 @@ export const dictionary = {
       'Mejor Proyecto EA Mundial \u2014 iCMG 2015',
       'Top Employer (7 a\u00f1os en UST)',
       'Great Place to Work (3 a\u00f1os en UST)',
-      '2.\u00ba Premio Centro Log\u00edstico Espa\u00f1ol \u2014 Prosegur',
+      '2.\u00ba Premio Centro Log\u00edstico Espa\u00f1ol',
       'Finalista All4Zero 2025',
     ],
   },
