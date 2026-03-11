@@ -184,6 +184,12 @@ export const dictionary = {
       'Over 25 years building value in leading organizations worldwide, from major corporations to my own ventures.',
     companies: [
       {
+        name: 'BEAI Energy',
+        years: '2025 \u2013 Present',
+        role: 'CEO & Founder',
+        sector: 'AI & Energy',
+      },
+      {
         name: 'UST',
         years: '2014 \u2013 2025',
         role: 'Managing Director Iberia & LATAM (2022\u20132025)',
@@ -196,14 +202,8 @@ export const dictionary = {
         sector: 'Insurance',
       },
       {
-        name: 'Procter & Gamble',
-        years: '2015 \u2013 2018',
-        role: 'IT Strategy & Enterprise Architecture',
-        sector: 'Consumer Goods',
-      },
-      {
         name: 'RTA (Roads & Transport Authority Dubai)',
-        years: '2012 \u2013 2015',
+        years: '2013 \u2013 2014',
         role: 'Enterprise Architect Lead',
         sector: 'Government & Transportation',
       },
@@ -214,10 +214,10 @@ export const dictionary = {
         sector: 'ICT Consulting \u2014 UAE & Saudi Arabia',
       },
       {
-        name: 'Official College of Physicists',
-        years: 'Active member',
-        role: 'Chartered Physicist',
-        sector: 'Professional Association',
+        name: 'NTT Data',
+        years: '1999 \u2013 2005',
+        role: 'IT Consultant',
+        sector: 'Technology & Consulting',
       },
     ],
     recognitionsLabel: 'Recognitions',
