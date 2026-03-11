@@ -14,7 +14,7 @@ export const dictionary = {
     badge: 'CEO y Fundador de BEAI Energy',
     headline: 'Transformaci\u00f3n Empresarial y Humana',
     headlineHighlight: 'Aumentada',
-    subheadline: 'La tecnolog\u00eda al servicio de las personas.',
+    subheadline: 'La IA y la tecnolog\u00eda al servicio de las personas.',
     subheadlineBold: 'Nunca en su lugar.',
     description:
       'Conecto IA, personas y negocio para generar impacto sostenible en los sectores de energ\u00eda e industria. M\u00e1s de 25 a\u00f1os liderando transformaciones en +25 pa\u00edses.',
@@ -36,7 +36,7 @@ export const dictionary = {
 
   about: {
     sectionLabel: 'SOBRE M\u00cd',
-    title: 'De f\u00edsico a CEO: una trayectoria global',
+    title: 'De so\u00f1ador tecnol\u00f3gico a l\u00edder en IA: una trayectoria global',
     photoAlt: 'Chema Salamanca \u2014 Sobre m\u00ed',
     bio1: 'Soy <strong class="text-[var(--gray-dark)]">Chema Salamanca</strong>, f\u00edsico de formaci\u00f3n, MBA y fundador de <strong class="text-[var(--teal)]">BEAI Energy</strong>. Mi carrera ha sido un viaje de transformaci\u00f3n constante: de las ecuaciones de la f\u00edsica a liderar equipos de m\u00e1s de 2.000 personas en corporaciones multinacionales.',
     bio2: 'He trabajado en <strong class="text-[var(--gray-dark)]">m\u00e1s de 25 pa\u00edses</strong>, conectando culturas, equipos y visiones de negocio. Esta experiencia multicultural me ha ense\u00f1ado que la verdadera transformaci\u00f3n no es solo tecnol\u00f3gica \u2014 es <em>profundamente humana</em>.',
@@ -105,7 +105,7 @@ export const dictionary = {
     missionBody:
       'Dise\u00f1ar e implementar estrategias sostenibles que conecten tecnolog\u00eda, IA, personas y negocio, aprovechando la IA para <strong>amplificar la inteligencia humana y empresarial</strong>.',
     missionTagline:
-      'La tecnolog\u00eda al servicio de las personas, nunca en su lugar.',
+      'La IA y la tecnolog\u00eda al servicio de las personas, nunca en su lugar.',
   },
 
   achievements: {
@@ -347,7 +347,7 @@ export const dictionary = {
   footer: {
     brand: 'Chema Salamanca',
     tagline:
-      'Transformaci\u00f3n Empresarial y Humana Aumentada con IA. La tecnolog\u00eda al servicio de las personas, nunca en su lugar.',
+      'Transformaci\u00f3n Empresarial y Humana Aumentada con IA. La IA y la tecnolog\u00eda al servicio de las personas, nunca en su lugar.',
     navigationTitle: 'Navegaci\u00f3n',
     beaiTitle: 'BEAI Energy',
     beaiDescription:

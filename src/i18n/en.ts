@@ -12,7 +12,7 @@ export const dictionary = {
 
   hero: {
     badge: 'CEO & Founder of BEAI Energy',
-    headline: 'Augmented Business & Human',
+    headline: 'AI Augmented Business & Human',
     headlineHighlight: 'Transformation',
     subheadline: 'AI & Technology at the service of people.',
     subheadlineBold: 'Never in their place.',
