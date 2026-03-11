@@ -110,7 +110,7 @@ export async function generateMetadata({
   // English (default)
   return {
     ...shared,
-    title: 'Chema Salamanca | Augmented Business & Human Transformation with AI',
+    title: 'Chema Salamanca | AI Augmented Business & Human Transformation with AI',
     description:
       'CEO & Founder of BEAI Energy. Physicist, MBA, and global leader with 25+ years driving transformation in energy and industrial sectors with ethical AI. Speaker, board member, and entrepreneur.',
     keywords: [
@@ -146,7 +146,7 @@ export async function generateMetadata({
       alternateLocale: 'es_ES',
       url: 'https://chemasalamanca.me/en',
       siteName: 'Chema Salamanca',
-      title: 'Chema Salamanca | Augmented Business & Human Transformation with AI',
+      title: 'Chema Salamanca | AI Augmented Business & Human Transformation with AI',
       description:
         'CEO & Founder of BEAI Energy. Physicist, MBA, and global leader with 25+ years driving transformation in energy and industrial sectors with ethical AI.',
       images: [
@@ -154,7 +154,7 @@ export async function generateMetadata({
           url: 'https://chemasalamanca.me/images/chema-og.jpg',
           width: 1200,
           height: 630,
-          alt: 'Chema Salamanca \u2014 Augmented Business & Human Transformation with AI',
+          alt: 'Chema Salamanca \u2014 AI Augmented Business & Human Transformation with AI',
         },
       ],
     },
@@ -233,7 +233,7 @@ function WebsiteSchema({ locale }: { locale: string }) {
       : 'https://chemasalamanca.me/en',
     description: isSpanish
       ? 'Transformaci\u00f3n Empresarial y Humana Aumentada con IA. CEO y Fundador de BEAI Energy.'
-      : 'Augmented Business & Human Transformation with AI. CEO & Founder of BEAI Energy.',
+      : 'AI Augmented Business & Human Transformation with AI. CEO & Founder of BEAI Energy.',
     inLanguage: isSpanish ? 'es-ES' : 'en-US',
     author: {
       '@type': 'Person',

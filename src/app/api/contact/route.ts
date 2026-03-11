@@ -277,7 +277,7 @@ export async function POST(request: NextRequest) {
 
     const { error: resendError } = await resend.emails.send({
       from: 'Formulario Web <web@chemasalamanca.me>',
-      to: process.env.CONTACT_EMAIL || 'jose.salamanca@nichotecnologico.com',
+      to: process.env.CONTACT_EMAIL || 'jose.salamanca@beaienergy.com',
       replyTo: data.email,
       subject: `[Web] ${subjectLabel} - ${data.name}`,
       html: buildEmailHtml(data),

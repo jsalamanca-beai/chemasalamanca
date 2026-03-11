@@ -14,7 +14,7 @@ export const dictionary = {
     badge: 'CEO & Founder of BEAI Energy',
     headline: 'Augmented Business & Human',
     headlineHighlight: 'Transformation',
-    subheadline: 'Technology at the service of people.',
+    subheadline: 'AI & Technology at the service of people.',
     subheadlineBold: 'Never in their place.',
     description:
       'I connect AI, people, and business to drive sustainable impact across the energy and industrial sectors. Over 25 years leading transformations in 25+ countries.',
@@ -36,7 +36,7 @@ export const dictionary = {
 
   about: {
     sectionLabel: 'ABOUT ME',
-    title: 'From physicist to CEO: a global trajectory',
+    title: 'From technology dreamer to AI leader: a global trajectory',
     photoAlt: 'Chema Salamanca — About',
     bio1: 'I am <strong class="text-[var(--gray-dark)]">Chema Salamanca</strong>, a physicist by training, MBA holder, and founder of <strong class="text-[var(--teal)]">BEAI Energy</strong>. My career has been a journey of constant transformation: from the equations of physics to leading teams of over 2,000 people in multinational corporations.',
     bio2: 'I have worked in <strong class="text-[var(--gray-dark)]">more than 25 countries</strong>, bridging cultures, teams, and business visions. This multicultural experience has taught me that true transformation is not just technological \u2014 it is <em>profoundly human</em>.',
@@ -104,7 +104,7 @@ export const dictionary = {
     missionTitle: 'My Mission',
     missionBody:
       'To design and implement sustainable strategies that connect technology, AI, people, and business, leveraging AI to <strong>amplify human and business intelligence</strong>.',
-    missionTagline: 'Technology at the service of people, never in their place.',
+    missionTagline: 'AI & Technology at the service of people, never in their place.',
   },
 
   achievements: {
@@ -334,9 +334,7 @@ export const dictionary = {
     },
     info: {
       emailLabel: 'Email',
-      email: 'jose.salamanca@nichotecnologico.com',
-      phoneLabel: 'Phone',
-      phone: '+34 629 275 376',
+      email: 'jose.salamanca@beaienergy.com',
       linkedinLabel: 'LinkedIn',
       linkedin: '/in/chema-salamanca',
       locationLabel: 'Location',
@@ -347,7 +345,7 @@ export const dictionary = {
   footer: {
     brand: 'Chema Salamanca',
     tagline:
-      'Augmented Business & Human Transformation with AI. Technology at the service of people, never in their place.',
+      'AI Augmented Business & Human Transformation with AI. AI & Technology at the service of people, never in their place.',
     navigationTitle: 'Navigation',
     beaiTitle: 'BEAI Energy',
     beaiDescription:

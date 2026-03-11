@@ -336,9 +336,7 @@ export const dictionary = {
     },
     info: {
       emailLabel: 'Email',
-      email: 'jose.salamanca@nichotecnologico.com',
-      phoneLabel: 'Tel\u00e9fono',
-      phone: '+34 629 275 376',
+      email: 'jose.salamanca@beaienergy.com',
       linkedinLabel: 'LinkedIn',
       linkedin: '/in/chema-salamanca',
       locationLabel: 'Ubicaci\u00f3n',
