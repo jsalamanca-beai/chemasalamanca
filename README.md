@@ -1,36 +1,152 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# chemasalamanca.me — Personal Website
 
-## Getting Started
+Personal website of **Chema Salamanca**, CEO & Founder of BEAI Energy. Built with Next.js 16, Tailwind CSS 4, and Framer Motion.
 
-First, run the development server:
+**Live:** [chemasalamanca.me](https://chemasalamanca.me)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+---
+
+## Tech Stack
+
+| Layer        | Technology                          |
+|--------------|-------------------------------------|
+| Framework    | Next.js 16 (App Router)             |
+| Language     | TypeScript 5                        |
+| Styling      | Tailwind CSS 4                      |
+| Animations   | Framer Motion 12                    |
+| Email API    | Resend                              |
+| Deployment   | Vercel                              |
+| Repository   | GitHub (`jsalamanca-beai/chemasalamanca`) |
+
+---
+
+## Project Structure
+
+```
+src/
+├── app/
+│   ├── [locale]/          # Localized pages (EN/ES)
+│   │   ├── layout.tsx     # Metadata, SEO, JSON-LD schemas
+│   │   └── page.tsx       # Main page (assembles all sections)
+│   ├── api/
+│   │   └── contact/
+│   │       └── route.ts   # Contact form API (Resend + rate limiting)
+│   ├── layout.tsx         # Root layout
+│   ├── page.tsx           # Root redirect
+│   ├── robots.ts          # robots.txt generation
+│   ├── sitemap.ts         # sitemap.xml generation
+│   └── globals.css        # Global styles & CSS variables
+├── components/
+│   ├── Header.tsx         # Navigation bar with language switcher
+│   ├── Footer.tsx         # Footer with social links
+│   ├── ui/
+│   │   └── AnimateOnScroll.tsx  # Scroll-triggered animations
+│   └── sections/
+│       ├── Hero.tsx       # Hero section with stats
+│       ├── About.tsx      # Biography and values
+│       ├── Expertise.tsx  # Skills and mission
+│       ├── Achievements.tsx # Metrics and recognitions
+│       ├── Brands.tsx     # Professional track record
+│       ├── Services.tsx   # Service offerings
+│       └── Contact.tsx    # Contact form + info
+├── i18n/
+│   ├── config.ts          # Locale configuration (es, en)
+│   ├── dictionaries.ts    # Dictionary loader
+│   ├── context.tsx        # React context for translations
+│   ├── en.ts              # English translations
+│   └── es.ts              # Spanish translations
+└── middleware.ts           # Locale detection & redirect
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Internationalization (i18n)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+The site supports **Spanish** (default) and **English**. All user-facing text is in:
 
-## Learn More
+- `src/i18n/es.ts` — Spanish dictionary
+- `src/i18n/en.ts` — English dictionary
 
-To learn more about Next.js, take a look at the following resources:
+Routes: `/es` (Spanish), `/en` (English). The middleware auto-detects the browser language and redirects.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Contact Form
 
-## Deploy on Vercel
+The contact form sends emails via **Resend** API.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Required Environment Variables
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+| Variable          | Description                              |
+|-------------------|------------------------------------------|
+| `RESEND_API_KEY`  | API key from [resend.com](https://resend.com) |
+| `CONTACT_EMAIL`   | Destination email (fallback: `jose.salamanca@beaienergy.com`) |
+
+These must be configured in **Vercel > Project Settings > Environment Variables**.
+
+### Features
+- Server-side validation
+- Rate limiting (5 requests/hour per IP)
+- HTML email template
+- Anti-XSS (HTML escaping)
+
+---
+
+## Getting Started (Local Development)
+
+```bash
+# Install dependencies
+npm install
+
+# Create .env.local with required variables
+echo "RESEND_API_KEY=re_xxxxx" > .env.local
+echo "CONTACT_EMAIL=jose.salamanca@beaienergy.com" >> .env.local
+
+# Run development server
+npm run dev
+```
+
+Open [http://localhost:3000](http://localhost:3000).
+
+---
+
+## Deployment
+
+The site auto-deploys to Vercel on every push to `master`.
+
+```
+Push to master → GitHub → Vercel auto-build → chemasalamanca.me
+```
+
+### Vercel Configuration
+
+- Framework: Next.js
+- Security headers configured in `vercel.json`
+- Image caching: 1 year for `/images/*`
+- Domain: `chemasalamanca.me`
+
+---
+
+## SEO
+
+- Dynamic metadata per locale (`layout.tsx`)
+- JSON-LD schemas: `Person` + `WebSite`
+- Open Graph & Twitter cards
+- `robots.ts` and `sitemap.ts` auto-generated
+- Canonical URLs per language
+
+---
+
+## Changelog (2026-03-11)
+
+- Removed personal phone number from contact section
+- Updated email to `jose.salamanca@beaienergy.com`
+- Updated branding: "AI Augmented Business & Human Transformation"
+- Updated tagline: "AI & Technology at the service of people"
+- Updated about title: "From technology dreamer to AI leader"
+- Replaced Prosegur with Hiscox Europe (2015–2016)
+- Removed Procter & Gamble from track record
+- Added BEAI Energy (2025–Present) to track record
+- Added NTT Data (1999–2005) to track record
+- Removed Colegio de Físicos from brands (kept in credentials)
+- Ordered track record chronologically
