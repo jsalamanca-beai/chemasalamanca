@@ -261,7 +261,7 @@ export async function POST(request: NextRequest) {
     const { data } = validation;
 
     // --- Check Resend API key ---
-    const resendApiKey = process.env.RESEND_API_KEY;
+    const resendApiKey = process.env.RESEND_API_KEY?.trim();
     if (!resendApiKey) {
       console.error('RESEND_API_KEY is not configured');
       return NextResponse.json(
