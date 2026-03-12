@@ -285,13 +285,15 @@ export async function POST(request: NextRequest) {
 
     if (resendError) {
       console.error('Resend error:', JSON.stringify(resendError));
+      const keyPreview = resendApiKey ? `${resendApiKey.substring(0, 8)}...${resendApiKey.substring(resendApiKey.length - 4)} (len:${resendApiKey.length})` : 'EMPTY';
       return NextResponse.json(
         {
           error:
             'No se pudo enviar el mensaje. Por favor, intenta de nuevo o contacta por email.',
-          debug: process.env.NODE_ENV === 'development' ? resendError : {
+          debug: {
             name: resendError.name,
             message: resendError.message,
+            keyPreview,
           },
         },
         { status: 500 }
